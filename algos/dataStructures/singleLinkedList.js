@@ -72,11 +72,88 @@ class SingleLinkedList {
     this.length++;
     return this;
   }
+
+  get(index) {
+    if (index < 0 || index >= this.length) return null;
+
+    let counter = 0;
+    let found = this.head;
+    while (counter !== index) {
+      found = found.next;
+      counter++;
+    }
+    return found;
+  }
+
+  set(index, val) {
+    const item = this.get(index);
+    
+    if (item) {
+      item.val = val;
+      return true;
+    }
+  }
+
+  insert(index, val) {  
+    if (index === this.length) {
+      this.push(val);
+      return true;
+    }
+    
+    const currentItem = this.get(index);
+    if (!currentItem) return false;
+
+    const previousItem = this.get(index - 1);
+    const newItem = new Node(val);
+    
+    if (previousItem) {
+      newItem.next = previousItem.next;
+      previousItem.next = newItem;
+    } else {
+      newItem.next = this.head;
+      this.head = newItem;
+    }
+    this.length++;
+  }
+
+  remove(index) {
+    if (index < 0 || index >= this.length) return false;
+
+    if (index === this.length - 1) this.pop();
+    if (index === 0) this.shift();
+
+    const itemPrev = this.get(index - 1);
+    const removed = itemPrev.next;
+    if (itemPrev) {
+      itemPrev.next = itemPrev.next.next;
+      this.length--;
+    }
+    return removed; 
+  }
+  
+  reverse() {
+    let node = this.head;
+    this.head = this.tail;
+    this.tail = node;
+    
+    let next;
+    let prev = null;
+    
+    for (let i = 0; i < this.length; i++) {
+      next = node.next;
+      node.next = prev;
+      prev = node;
+      node = next;
+    }
+    return this;
+  }
 }
 
 let list = new SingleLinkedList();
 list.push(1);
-list.pop();
-console.log(list);
-list.unshift(23)
-console.log(list);
+list.push(15);
+list.push(114);
+list.push(190);
+console.log(JSON.stringify(list));
+list.reverse();
+console.log(JSON.stringify(list));
