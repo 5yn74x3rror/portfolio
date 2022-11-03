@@ -1,6 +1,0 @@
-1. Codingame dashboard widget
-- small python script fetching codingame user data
-- saves to mongo/other
-- nodejs api fetching value
-- display codingame user level in dashboard
-- styling similar liek in codingame
