@@ -1,11 +1,17 @@
+import React from 'react';
 import './App.css';
 
-const App = () => {
+const App: React.FunctionComponent<AppProps> = ({ x, y }) => {
   return (
     <div className="App">
-      xxx
+        {x}{x}
     </div>
   );
 }
 
 export default App;
+
+interface AppProps {
+  x: String,
+  y?: String,
+}
