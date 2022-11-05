@@ -1,6 +1,7 @@
+import { FunctionComponent } from 'react';
 import { Container, Flex, Box, Heading } from '@chakra-ui/react';
 
-const Page = () => {
+const Page: FunctionComponent = () => {
   return (
     <Container>
       <Flex borderRadius='lg' bg='yellow' p={8} align='center' justify='center'>

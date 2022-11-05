@@ -1,7 +1,8 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Text, useColorModeValue } from '@chakra-ui/react';
 import styled from "@emotion/styled";
+
+import HeartIcon from './icons/heart';
 
 const LogoBox = styled.span`
   font-weight: bold;
@@ -18,23 +19,19 @@ const LogoBox = styled.span`
 `;
 
 const Logo = () => {
-  const img = `/images/image${useColorModeValue('', '-dark')}.png`;
-
   return (
     <Link href='/'>
-      <a>
-        <LogoBox>
-          <Image src={img} width={20} height={20} alt='logo' />
-          <Text
-            color={useColorModeValue('gray.800', 'whiteAlpha.900')}
-            fontFamily='M PLUS Rounded 1c'
-            fontWeight='bold'
-            ml={3}
-          >
-            Maciej C
-          </Text>
-        </LogoBox>
-      </a>
+      <LogoBox>
+        <HeartIcon />
+        <Text
+          color={useColorModeValue('gray.800', 'whiteAlpha.900')}
+          fontFamily='M PLUS Rounded 1c'
+          fontWeight='bold'
+          ml={3}
+        >
+          Maciej C
+        </Text>
+      </LogoBox>
     </Link>
   );
 };

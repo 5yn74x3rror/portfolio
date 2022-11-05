@@ -1,3 +1,4 @@
+import { FC, ReactNode } from 'react';
 import NextLink from 'next/link';
 import {
   Container,
@@ -17,7 +18,7 @@ import { HamburgerIcon } from '@chakra-ui/icons';
 
 import Logo from './logo';
 
-const LinkItem = ({ href, path, children }) => {
+const LinkItem: FC<LinkItemProps> = ({ href, path, children }) => {
   const active = path === href;
   const inactiveColor = useColorModeValue('gray.200', 'whiteAlpha.900');
 
@@ -34,11 +35,7 @@ const LinkItem = ({ href, path, children }) => {
   );
 };
 
-type NavbarProps = {
-  path: String
-};
-
-const Navbar = (props: NavbarProps) => {
+const Navbar: FC<NavbarProps> = (props) => {
   const { path } = props;
 
   return (
@@ -51,9 +48,32 @@ const Navbar = (props: NavbarProps) => {
       zIndex={1}
       {...props}
     >
-      Navbar
+      <Container
+        display='flex'
+        p={2}
+        maxW='container.md'
+        flexWrap='wrap'
+        alignItems='center'
+        justifyContent='space-between'
+      >
+        <Flex align='center' mr={5}>
+          <Heading as='h1' size='lg' letterSpacing='tighter'>
+            <Logo />
+          </Heading>
+        </Flex>
+      </Container>
     </Box>
   );
+};
+
+type LinkItemProps = {
+  path: string;
+  href: string;
+  children: ReactNode;
+};
+
+type NavbarProps = {
+  path: String;
 };
 
 export default Navbar;
