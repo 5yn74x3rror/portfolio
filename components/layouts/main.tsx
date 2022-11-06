@@ -7,7 +7,7 @@ import Navbar from '../navbar';
 type MainProps = {
   children?: React.ReactNode,
   router: {
-    asPath: String
+    asPath: string
   }
 };
 

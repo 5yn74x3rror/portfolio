@@ -25,11 +25,13 @@ const Logo = () => {
         <HeartIcon />
         <Text
           color={useColorModeValue('gray.800', 'whiteAlpha.900')}
-          fontFamily='M PLUS Rounded 1c'
+          fontFamily='Josefin Sans'
           fontWeight='bold'
           ml={3}
         >
-          Maciej C
+          Maciej
+          <br />
+          Cywiński
         </Text>
       </LogoBox>
     </Link>

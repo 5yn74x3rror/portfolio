@@ -4,7 +4,7 @@ import { Container, Flex, Box, Heading } from '@chakra-ui/react';
 const Page: FunctionComponent = () => {
   return (
     <Container>
-      <Flex borderRadius='lg' bg='yellow' p={8} align='center' justify='center'>
+      <Flex borderRadius='lg' bg='brown' p={8} align='center' justify='center'>
         Hellou!
       </Flex>
       <Box display={{ md: 'flex' }}>
