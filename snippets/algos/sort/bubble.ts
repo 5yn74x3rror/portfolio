@@ -1,3 +1,10 @@
+// n loops whtought elements, every time starting from the beggining
+// every loop is shorter by one step
+// after each loop element at the end of it is already sorted
+// every step it is comparing element 'i' and 'i+1' and swaps them if 'i' is larger
+// 'numsOfSwaps' added to check if there were any swaps in the loop
+// to prevent additional looping if not necessary
+
 export const bubbleSort = (arr: Number[]) => {
   let endIdx = arr.length - 1;
   while (endIdx > 0) {
@@ -5,12 +12,10 @@ export const bubbleSort = (arr: Number[]) => {
 
     for (let i = 0; i < endIdx; i++) {
       if (arr[i] > arr[i + 1]) {
-        // console.log('swapping', arr[i], arr[i+1]);
         [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
         numOfSwaps++;
       }
     }
-    // console.log('loop end');
     if (numOfSwaps === 0) break; // prevent more sorting if already sorted
     endIdx--;
   }

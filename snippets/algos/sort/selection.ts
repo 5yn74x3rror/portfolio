@@ -1,16 +1,21 @@
+// starting from idx 0 to last-1 it sets it as a reference
+// then goes through elements refIdx to last in array looks for the smallest element 
+// which is smaller than reference element
+// if smaller is found - reference and smallest are swapped
+
 export const selectionSort = (arr: Number[]) => {
   let currentFirstIdx = 0;
-  let smallestIdx;
+  let indexOfSmallestElement;
   while (currentFirstIdx !== arr.length - 1) {
-    smallestIdx = currentFirstIdx;
+    indexOfSmallestElement = currentFirstIdx;
 
     for (let i = currentFirstIdx + 1; i < arr.length; i++) {
-      if (arr[i] <= arr[smallestIdx]) smallestIdx = i;
+      if (arr[i] <= arr[indexOfSmallestElement]) indexOfSmallestElement = i;
     }
 
-    if (smallestIdx !== currentFirstIdx) {
-      [arr[currentFirstIdx], arr[smallestIdx]] = [
-        arr[smallestIdx],
+    if (indexOfSmallestElement !== currentFirstIdx) {
+      [arr[currentFirstIdx], arr[indexOfSmallestElement]] = [
+        arr[indexOfSmallestElement],
         arr[currentFirstIdx]
       ];
     }
