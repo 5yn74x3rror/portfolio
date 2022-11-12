@@ -21,7 +21,7 @@ class Stack {
       node.next = this.first;
       this.first = node;
     }
-    console.log(this.size + 1);
+    console.log(this);
     return ++this.size;
   }
 
@@ -29,22 +29,28 @@ class Stack {
     if (!this.first) {
       console.log(null)
       return null
-    } else {
-      const nextNode = this.first.next;
-      const removedNode = this.first;
-      this.first = nextNode;
-      this.size--;
-      console.log(removedNode);
-      return removedNode;
+    } 
+      
+    const nextNode = this.first.next;
+    const removedNode = this.first;
+
+    if (this.first === this.last) {
+      this.last = null;
     }
+
+    this.first = nextNode;
+    this.size--;
+    console.log(this);
+
+    return removedNode;
   }
 }
 
 const stack = new Stack();
 stack.push(123);
 stack.push(1234);
-stack.push(12333);
 stack.pop()
 stack.pop()
 stack.pop()
 stack.push(456)
+stack.pop()
