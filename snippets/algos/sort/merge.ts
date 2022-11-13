@@ -1,4 +1,4 @@
-const mergeArr = (arr1, arr2) => {
+export const mergeArr = (arr1: number[], arr2: number[]) => {
   const result = [];
   let i = 0;
   let j = 0;
@@ -13,11 +13,11 @@ const mergeArr = (arr1, arr2) => {
   return result;
 };
 
-const mergeSort = arr => {
+const mergeSort = (arr: number[]) => {
   if (arr.length <= 1) return arr;
   const half = Math.floor(arr.length / 2);
-  const arr1 = mergeSort(arr.slice(0, half));
-  const arr2 = mergeSort(arr.slice(half));
+  const arr1: number[] = mergeSort(arr.slice(0, half));
+  const arr2: number[] = mergeSort(arr.slice(half));
   return mergeArr(arr1, arr2);
 };
 
