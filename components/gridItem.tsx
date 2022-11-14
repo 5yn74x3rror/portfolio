@@ -43,7 +43,7 @@ export const WorkGridItem: React.FC<WorkGridItemProps> = ({
   thumbnail,
 }) => (
   <Flex w='100%' align='center'>
-    <NextLink href={`/works/${id}`}>
+    <NextLink href={`/portfolio/${id}`}>
       <Image 
         src={thumbnail}
         alt={title}
