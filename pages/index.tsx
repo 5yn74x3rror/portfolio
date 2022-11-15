@@ -8,13 +8,21 @@ import {
   Image,
   Button,
   useColorModeValue,
+  List,
+  ListItem,
+  Icon,
 } from '@chakra-ui/react';
+import {
+  IoLogoGithub,
+  IoLogoTwitter,
+} from 'react-icons/io5';
 
 import Layout from '../components/layouts/article';
 import Section from '../components/section';
 import Paragraph from '../components/paragraph';
 import { BioSection, BioYear } from '../components/bio';
 import { ChevronRightIcon } from '@chakra-ui/icons';
+import Link from 'next/link';
 
 const Page: FunctionComponent = () => {
   return (
@@ -96,6 +104,28 @@ const Page: FunctionComponent = () => {
             <BioYear>2023</BioYear>
             Looking for a new job opportunity
           </BioSection>
+        </Section>
+
+        <Section delay={0.3}>
+          <Heading as='h3' variant='section-title'>
+            Socialz
+          </Heading>
+          <List>
+            <ListItem>
+              <Link href='https://github.com/5yn74x3rror' target='_blank'>
+                <Button variant='ghost' colorScheme='teal' leftIcon={<Icon as={IoLogoGithub} />}>
+                  @5yn74x3rror
+                </Button>
+              </Link>
+            </ListItem>
+            <ListItem>
+              <Link href='http://google.com' target='_blank'>
+                <Button variant='ghost' colorScheme='teal' leftIcon={<Icon as={IoLogoTwitter} />}>
+                  @5yn74x3rror
+                </Button>
+              </Link>
+            </ListItem>
+          </List>
         </Section>
       </Container>
     </Layout>
